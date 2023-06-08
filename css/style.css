@@ -6,14 +6,14 @@ header{
     display: flex;
     flex-direction: row;
     background-color: #d02410;
-    height: 6vh;
+    height: 250%;
     
     
 }
 header>div>p{
-    font-size: 3vh;
-    margin-top: 1.55vh;
-    color: green;
+    font-size: 200%;
+    margin-top: 10%;
+    color: #f4f4f4;
     font-family: Italiana, sans-serif;
 }
 li{
@@ -23,7 +23,7 @@ li{
 a{
     text-decoration: none;
     color: #f4f4f4;
-    font-size: 1.3vh;
+    font-size: 130%;
 }
 a:hover{
     
@@ -63,3 +63,9 @@ a:hover{
 }
 
 /*Form stuff*/
+.table{
+    border: red;
+    border-style: solid;
+    border-radius: 10px
+    
+}

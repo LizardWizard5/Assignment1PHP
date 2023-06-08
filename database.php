@@ -7,12 +7,12 @@ class DB
         $this ->dbConnector();
     }
     public function dbConnector(){
-        $this->sqlConnection = mysqli_connect('localhost','root','rootPassword','assignment1');//ip, username, password, database.also assigns the database to the var sqlConnection
+        $this->sqlConnection = mysqli_connect('localhost','eric','Erichasthispassword','assignment1');//ip, username, password, database.also assigns the database to the var sqlConnection
         if(mysqli_connect_error())// if php was able to connect to the sql server
             die("Can't seem to connect to the database: ". mysqli_connect_error());
     }
-    public function sendData($fname,$lname,$number,$email,$topping1, $topping2, $topping3){
-        $command = "INSERT INTO pizzaorders (fname, lname, phoneNum, email, toppingOne, toppingTwo, toppingThree, notes) VALUES('$fname','$lname','$number','$email','$topping1', '$topping2', '$topping3','NOTES SAMPLE')";//saves the mySQL insert command to a variable
+    public function sendData($fname,$lname,$number,$email,$topping1, $topping2, $topping3,$notes){
+        $command = "INSERT INTO pizzaorders (fname, lname, phoneNum, email, toppingOne, toppingTwo, toppingThree, notes) VALUES('$fname','$lname','$number','$email','$topping1', '$topping2', '$topping3','$notes')";//saves the mySQL insert command to a variable
         $response = mysqli_query($this->sqlConnection, $command);//sends the command to the mySQL server
         if($response){//if the command goes through
             return true;
