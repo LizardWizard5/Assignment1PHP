@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+  }
+  
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: #d02410;
+    height: 6vh;
+    
+    
+}
+header>div>p{
+    font-size: 3vh;
+    margin-top: 1.55vh;
+    color: green;
+    font-family: Italiana, sans-serif;
+}
+li{
+    list-style: none; 
+    
+}
+a{
+    text-decoration: none;
+    color: #f4f4f4;
+    font-size: 1.3vh;
+}
+a:hover{
+    
+    border-bottom: #f4f4f4;
+    border-bottom-style: dotted;
+    border-width: 2px;
+    transition: all 0.2s;
+}
+/*Hero image*/
+.hero-image{
+    background-image: url("../img/herp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y:-50vh;
+    height: 60vh;
+    
+    
+}
+.hero-image div{
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.hero-image h1{
+    font-size: 10vh;
+    margin-bottom: 10px;
+    color: #f4f4f4;
+}
+.hero-image p{
+    margin-top: 10px;
+    font-size: 5vh;
+    color: #f4f4f4;
+}
+
+/*Form stuff*/
