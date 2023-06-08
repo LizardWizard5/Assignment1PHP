@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: #b60b0b;
   }
   
 header{
@@ -24,6 +25,8 @@ a{
     text-decoration: none;
     color: #f4f4f4;
     font-size: 130%;
+    transition: all 0.2s;
+    border-width: 0px;
 }
 a:hover{
     
@@ -64,8 +67,36 @@ a:hover{
 
 /*Form stuff*/
 .table{
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+    padding-top: 3%;
+}
+.table form{
     border: red;
     border-style: solid;
-    border-radius: 10px
-    
+    border-radius: 10px;
+    padding: 10px;
+    border-width: 5px;
+    background-color: #d02410;
 }
+.table form>section{
+    display: flex;
+    flex-direction: column;
+}
+.table textarea{
+    resize: none;
+    width: 98%;
+    height: 10vh;
+}
+#table-p{
+    text-align: center;
+    color: #f4f4f4;
+}
+
+.table label, h3{
+    color: #f4f4f4;
+}
+
+
+

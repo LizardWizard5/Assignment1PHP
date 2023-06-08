@@ -69,7 +69,7 @@
     <input type="submit">
         
     </form>
-
+    </div> 
       <?php
             require_once('database.php');
 
@@ -84,7 +84,6 @@
               $notes = $database -> sanitize(($_POST['notes']));
               $response = $database ->sendData($fName, $lName, $pNumber, $email, $topping1, $topping2, $topping3, $notes);//goes to the sendData function belonging to the database object to send
               if($response){
-                //add proper order complete message
                 $words = "";
                 for($x = 1; $x<=3; $x+=1){
                   if($_POST['topping-'.$x] !=="none" && $x >= 3)
@@ -93,7 +92,7 @@
                     $words = $words ." ".$_POST['topping-'.$x].",";
                   }
                 }
-                echo"<p>Your pizza   with ".$words." has been orderderd</p>";
+                echo"<p id='table-p'>Your pizza with ".$words." has been orderderd!</p>";
               }
               else
                 echo "<p>Hmm... It seems there is an issue with submitting the order, make sure you entered all the boxes properly. There could also be a problem on our end.</p>";
@@ -101,6 +100,6 @@
             
           ?>
 
-    </div>
+     
   </body>
 </html>
