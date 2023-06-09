@@ -3,29 +3,38 @@ body {
     background-color: #b60b0b;
   }
   
-header{
+.heder{
     display: flex;
     flex-direction: row;
     background-color: #d02410;
-    height: 250%;
-    
-    
-}
-header>div>p{
-    font-size: 200%;
-    margin-top: 10%;
+    height: 13vh;
     color: #f4f4f4;
-    font-family: Italiana, sans-serif;
+    font-family: Eb Garamond, sans-serif;
 }
+header>p{
+    
+    margin-top: 4vh;
+    margin-left: 2vh;
+    
+    font-size: 4vh;
+    
+}
+.heder ul{
+    margin-top: 2vh;
+    padding-left: 5vh;
+}
+.heder li{
+    font-size: 2vh;
+}
+
 li{
     list-style: none; 
-    
 }
 a{
     text-decoration: none;
     color: #f4f4f4;
-    font-size: 130%;
-    transition: all 0.2s;
+    font-size: 2.5vh;
+    transition: all 0.1s;
     border-width: 0px;
 }
 a:hover{
@@ -33,7 +42,7 @@ a:hover{
     border-bottom: #f4f4f4;
     border-bottom-style: dotted;
     border-width: 2px;
-    transition: all 0.2s;
+    transition: all 0.1s;
 }
 /*Hero image*/
 .hero-image{
@@ -42,15 +51,13 @@ a:hover{
     background-size: cover;
     background-position-y:-50vh;
     height: 60vh;
-    
-    
 }
 .hero-image div{
+    display: flex;
     background-color: rgba(0, 0, 0, 0.5);
     background-size: cover;
     height: 60vh;
-    display: flex;
-    justify-content: center;
+    
     align-items: center;
     flex-direction: column;
 }
@@ -58,11 +65,13 @@ a:hover{
     font-size: 10vh;
     margin-bottom: 10px;
     color: #f4f4f4;
+    font-family: Quicksand, "comic-sans";
 }
 .hero-image p{
     margin-top: 10px;
     font-size: 5vh;
     color: #f4f4f4;
+    font-family: Lobster, "comic-sans";
 }
 
 /*Form stuff*/
@@ -85,18 +94,100 @@ a:hover{
     flex-direction: column;
 }
 .table textarea{
+    border: dashed;
+    color: #f4f4f4;
+
     resize: none;
     width: 98%;
     height: 10vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 110%;
+    
+    margin-top: 3%;
+    border-radius: 10px;
 }
 #table-p{
     text-align: center;
     color: #f4f4f4;
+    font-size: 4vh;
 }
 
-.table label, h3{
+.table label, h3, #table-p, .table select{
     color: #f4f4f4;
+    font-family: Quicksand, "comic-sans";
+}
+.table h3{
+    font-size: 4vh;
+}
+.table label{
+    padding-bottom: 5px;
+    font-size:2vh;
 }
 
 
+#submit{
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+
+}
+
+.table input:not(#submit){
+    background-color: rgba(0, 0, 0, 0.5);
+    border-width: 0;
+    border-bottom: #f4f4f4;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+    margin-bottom: 8px;
+
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+    font-size: 110%;
+
+    
+    color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.table input:focus:not(#submit){
+    
+    outline: none;
+    border-style: none;
+    border-bottom-style: solid;
+    
+}
+.table textarea:focus {
+    padding-top: 5px;
+    padding-left: 5px;
+    outline: none;
+    border-style: none;
+    border-bottom-style: solid;
+}
+
+.table select{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-style:dashed;
+    border-top-style: none;
+    padding: 1%;
+    font-size: 120%;
+    
+}
+.table select:first-of-type{
+    border-top-style: dashed;
+}
+
+.table select:focus{
+    border-style:solid;
+    border-top-style: none;
+    
+    font-style: normal;
+}
+
+.table select:first-of-type:focus{
+    border-style:solid;
+    border-top-style: dashed;
+    
+}
 

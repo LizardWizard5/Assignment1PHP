@@ -7,23 +7,27 @@
     <title>The Pizza Club</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
+
+
   </head>
-  <header>
-    <div>
-    <p>The Pizza Club</p>
-  </div>
-  <div>
+  <header class="heder">
+    
+    <p id="logo-text">The Pizza Club</p>
+  
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Order a Pizza</a></li>
       <li><a href="#">About us</a></li>
     </ul>
-  </div>
+  
   </header>
   <body>
     
-    <div class = "hero-image">
+    <div class ="hero-image">
       <div>
         <h1 id="hero-text">Hungry?</h1>
         <p id="hero-text">Order a Pizza!</p>
@@ -32,7 +36,7 @@
   
     <div class="table">
       <form method="post">
-        <h3>Fill out the following and we will start making your pizza!</h3>
+        <h3>Fill out your contact and order information and we will start making your pizza!</h3>
         <section>
           <label for="name">Your Name</label><br>
           <input id="name" type="text" name ="fName" placeholder="* Firstname" required>
@@ -66,12 +70,12 @@
     </section>
     <textarea id ="notes" name="notes" placeholder="Please list any allergies or notes about your order that you might want us to know! (500 character limit)"></textarea><br>
   
-    <input type="submit">
+    <input id="submit" type="submit" value="Place Order">
         
     </form>
     </div> 
       <?php
-            require_once('database.php');
+            require_once('DB.php');
 
             if(isset($_POST) & !empty($_POST)){
               $fName = $database -> sanitize($_POST['fName']);//Sanitizes all the information in the forms and fixes and character that might mess with mySQL syntax
@@ -85,17 +89,29 @@
               $response = $database ->sendData($fName, $lName, $pNumber, $email, $topping1, $topping2, $topping3, $notes);//goes to the sendData function belonging to the database object to send
               if($response){
                 $words = "";
-                for($x = 1; $x<=3; $x+=1){
-                  if($_POST['topping-'.$x] !=="none" && $x >= 3)
-                  $words = $words ." and ".$_POST['topping-'.$x];
-                  else if($_POST['topping-'.$x] !== "none"){
-                    $words = $words ." ".$_POST['topping-'.$x].",";
-                  }
+                if($_POST['topping-1'] == "none" && $_POST['topping-2'] == "none" && $_POST['topping-3'] == "none"){
+                  echo"<p id='table-p'>Your pizza has been ordered!</p>";
                 }
-                echo"<p id='table-p'>Your pizza with ".$words." has been orderderd!</p>";
+
+                else{
+                  for($x = 1; $x<=3; $x+=1){
+
+                    if($_POST['topping-'.$x] !=="none" && $x >= 3){
+                      $words = $words ." and ".$_POST['topping-'.$x];
+                    }
+
+                    elseif($_POST['topping-'.$x] !== "none"){
+                      $words = $words ." ".$_POST['topping-'.$x].",";
+                    }
+
+                  }
+
+                  echo"<p id='table-p'>Your pizza with ".$words." has been orderderd!</p>";
+                }
               }
-              else
+              else{
                 echo "<p>Hmm... It seems there is an issue with submitting the order, make sure you entered all the boxes properly. There could also be a problem on our end.</p>";
+              }
             }
             
           ?>
