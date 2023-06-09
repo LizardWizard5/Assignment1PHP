@@ -16,7 +16,7 @@
   </head>
   <header class="heder">
     
-    <p id="logo-text">The Pizza Club</p>
+    <p id="logo-text"><a href="index.php">The Pizza Club</a></p>
   
     <ul>
       <li><a href="#">Home</a></li>

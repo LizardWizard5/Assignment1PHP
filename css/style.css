@@ -11,33 +11,47 @@ body {
     color: #f4f4f4;
     font-family: Eb Garamond, sans-serif;
 }
-header>p{
+
+
+.heder > p > a{
     
-    margin-top: 4vh;
+    margin-top: 2vh;
     margin-left: 2vh;
     
     font-size: 4vh;
-    
+
+    color: #f4f4f4;
+    text-decoration: none;
 }
 .heder ul{
-    margin-top: 2vh;
-    padding-left: 5vh;
+    margin-top: 3vh;
+    margin-right: 60%;
+    display: flex; 
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: right;
+    width: auto;
 }
 .heder li{
     font-size: 2vh;
+    margin-left: 10%;
+    
 }
 
 li{
     list-style: none; 
 }
-a{
+.heder ul > li > a{
+    
     text-decoration: none;
     color: #f4f4f4;
-    font-size: 2.5vh;
+    font-size: 20px;
     transition: all 0.1s;
     border-width: 0px;
+
+    
 }
-a:hover{
+.heder ul > li > a:hover{
     
     border-bottom: #f4f4f4;
     border-bottom-style: dotted;
@@ -49,7 +63,7 @@ a:hover{
     background-image: url("../img/herp.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y:-50vh;
+    background-position-y:70%;
     height: 60vh;
 }
 .hero-image div{
@@ -57,7 +71,6 @@ a:hover{
     background-color: rgba(0, 0, 0, 0.5);
     background-size: cover;
     height: 60vh;
-    
     align-items: center;
     flex-direction: column;
 }
@@ -113,7 +126,7 @@ a:hover{
     font-size: 4vh;
 }
 
-.table label, h3, #table-p, .table select{
+.table label, h3, #table-p, .table select , #submit{
     color: #f4f4f4;
     font-family: Quicksand, "comic-sans";
 }
@@ -128,9 +141,13 @@ a:hover{
 
 #submit{
     width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 2% 30% 2% 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+}
 
+#submit:active{
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .table input:not(#submit){
