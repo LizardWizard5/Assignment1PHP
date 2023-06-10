@@ -7,8 +7,8 @@ class DB
         $this ->dbConnector();
     }
     public function dbConnector(){
-        //$this->sqlConnection = mysqli_connect('localhost','root','rootPassword','assignment1');//ip, username, password, database.also assigns the database to the var sqlConnection
-        $this->sqlConnection = mysqli_connect('localhost','eric','Erichasthispassword','assignment1');
+        $this->sqlConnection = mysqli_connect('localhost','root','rootPassword','assignment1');//ip, username, password, database.also assigns the database to the var sqlConnection
+        //$this->sqlConnection = mysqli_connect('localhost','eric','Erichasthispassword','assignment1');// This is the information for my laptop sql server while above is my desktop server
         if(mysqli_connect_error())// if php was able to connect to the sql server
             die("Can't seem to connect to the database: ". mysqli_connect_error());
     }
@@ -26,4 +26,3 @@ class DB
     }
 }
 $database = new DB(); // creates a new DB object
-?>

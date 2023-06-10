@@ -7,14 +7,13 @@ body {
     display: flex;
     flex-direction: row;
     background-color: #d02410;
-    height: 13vh;
+    height: 10vh;
     color: #f4f4f4;
     font-family: Eb Garamond, sans-serif;
 }
 
 
 .heder > p > a{
-    
     margin-top: 2vh;
     margin-left: 2vh;
     
@@ -24,8 +23,8 @@ body {
     text-decoration: none;
 }
 .heder ul{
-    margin-top: 3vh;
-    margin-right: 60%;
+    margin-top: 2vh;
+    margin-right: 40%;
     display: flex; 
     flex-direction: row;
     flex-grow: 1;
@@ -33,20 +32,17 @@ body {
     width: auto;
 }
 .heder li{
-    font-size: 2vh;
     margin-left: 10%;
-    
-}
-
-li{
     list-style: none; 
 }
+
+
 .heder ul > li > a{
-    
+    display: flex;
     text-decoration: none;
     color: #f4f4f4;
-    font-size: 20px;
-    transition: all 0.1s;
+    font-size: 40px;
+    
     border-width: 0px;
 
     
@@ -93,6 +89,7 @@ li{
     justify-content: center;
     flex-flow: row;
     padding-top: 3%;
+    margin-bottom: 5vw;
 }
 .table form{
     border: red;
@@ -115,15 +112,18 @@ li{
     height: 10vh;
 
     background-color: rgba(0, 0, 0, 0.5);
-    font-size: 110%;
     
-    margin-top: 3%;
+    
+    margin-top: 1vh;
     border-radius: 10px;
+
+    font-size: 20px;
 }
-#table-p{
+.table-p{
     text-align: center;
     color: #f4f4f4;
     font-size: 4vh;
+    font-family: Quicksand, "comic-sans";
 }
 
 .table label, h3, #table-p, .table select , #submit{
@@ -144,6 +144,8 @@ li{
     margin: 2% 30% 2% 30%;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50px;
+    height: 5%;
+    font-size: 2vh;
 }
 
 #submit:active{
@@ -208,3 +210,43 @@ li{
     
 }
 
+
+/* Footer*/
+
+.footer{
+   justify-content: center;
+    height: fit-content;
+    background-color: #d02410;
+    display: grid;
+    color: #f4f4f4;
+    font-family: Quicksand, "comic-sans";
+    width: 100%;
+}
+#social{
+    grid-row: 1;
+    grid-column: 1;
+    margin-left: 5%;
+    width: fit-content;
+
+    
+}
+#social > ul > li{
+    list-style: none;
+}
+#social > ul > li > a{
+    text-decoration: none;
+    color: #f4f4f4;
+}
+#copyright{
+    grid-row: 2;
+    grid-column: 2;
+    width: fit-content;
+}
+#data-out{
+    grid-row: 1;
+    grid-column: 3;
+    width: fit-content;
+}
+#data-out>p{
+    margin-left: 100px;
+}

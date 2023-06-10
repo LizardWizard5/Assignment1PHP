@@ -10,10 +10,13 @@
 
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/3bdd956d40.js" crossorigin="anonymous"></script>
 
 
   </head>
+  <body>
   <header class="heder">
     
     <p id="logo-text"><a href="index.php">The Pizza Club</a></p>
@@ -25,12 +28,12 @@
     </ul>
   
   </header>
-  <body>
+  
     
     <div class ="hero-image">
       <div>
-        <h1 id="hero-text">Hungry?</h1>
-        <p id="hero-text">Order a Pizza!</p>
+        <h1>Hungry?</h1>
+        <p>Order a Pizza!</p>
       </div>
     </div>
   
@@ -68,6 +71,7 @@
         </select>
         
     </section>
+    <label for="notes">Special Notes</label><br>
     <textarea id ="notes" name="notes" placeholder="Please list any allergies or notes about your order that you might want us to know! (500 character limit)"></textarea><br>
   
     <input id="submit" type="submit" value="Place Order">
@@ -75,6 +79,7 @@
     </form>
     </div> 
       <?php
+            $outputData = false;//Sets up the data print out in the footer
             require_once('DB.php');
 
             if(isset($_POST) & !empty($_POST)){
@@ -88,25 +93,25 @@
               $notes = $database -> sanitize(($_POST['notes']));
               $response = $database ->sendData($fName, $lName, $pNumber, $email, $topping1, $topping2, $topping3, $notes);//goes to the sendData function belonging to the database object to send
               if($response){
-                $words = "";
-                if($_POST['topping-1'] == "none" && $_POST['topping-2'] == "none" && $_POST['topping-3'] == "none"){
-                  echo"<p id='table-p'>Your pizza has been ordered!</p>";
+                $words = "";//Empty string variable for the string builder
+                $outputData = true;//Set to true to state that the data has been sent to the db and tell the script on line 135 that it can print out the data
+                if($_POST['topping-1'] == "none" && $_POST['topping-2'] == "none" && $_POST['topping-3'] == "none"){//If there were no topping chosen
+                  echo"<p class='table-p'>Your plain cheese pizza has been ordered!</p>";//If the user selected no toppings
                 }
 
                 else{
-                  for($x = 1; $x<=3; $x+=1){
+                  for($x = 1; $x<=3; $x+=1){//String builder for if the toppings value isn't none. If it's none it will skip the topping and move to the next one. This works if you want to add more toppings options
 
                     if($_POST['topping-'.$x] !=="none" && $x >= 3){
-                      $words = $words ." and ".$_POST['topping-'.$x];
+                      $words = $words ." and ".$_POST['topping-'.$x];//This s for the last topping option so that we can have proper english for a lst and add a "and"
                     }
 
-                    elseif($_POST['topping-'.$x] !== "none"){
+                    else if($_POST['topping-'.$x] !== "none"){//if the topping does not equal none we add it to the string
                       $words = $words ." ".$_POST['topping-'.$x].",";
                     }
-
                   }
 
-                  echo"<p id='table-p'>Your pizza with ".$words." has been orderderd!</p>";
+                  echo"<p class='table-p'>Your pizza with ".$words." has been orderderd!</p>";//Prints out the finished order prinout if you selected toppings
                 }
               }
               else{
@@ -115,7 +120,31 @@
             }
             
           ?>
+    <footer class="footer">
+            <div id="social">
+              <p>Check out the social pages</p>
+              <ul>
+              <li><i class="fa-brands fa-twitter" style="color: #0000f0;"></i><a href="#"> Twitter</a></li>
+              <li><i class="fa-brands fa-instagram" style="color: #e623eb;"></i><a href="#"> Instagram</a></li>
+              <li><i class="fa-brands fa-facebook" style="color: #0000f0;"></i><a href="#"> Facebook</a></li>
+              </ul>
+            </div>
 
+            <div id = "data-out">
+              <?php
+              if($outputData){//If the data is sent, this prints out the data that was sent to the SQL server
+              echo "<p> Data sent! </p>";
+              echo "<p>Name: ".$fName." ".$lName."</p>";
+              echo "<p>Phone Number: ".$pNumber."</p>";
+              echo "<p>Email: ".$email."</p>";
+              echo "<p>Toppings: ".$topping1.", ".$topping2.", ".$topping3."</p>";
+              }
+              ?>
+            </div>
+            <p id="copyright">Pizza company (c) 2023</p>
+            
+
+    </footer>
      
   </body>
 </html>
